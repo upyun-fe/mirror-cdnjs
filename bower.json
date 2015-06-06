@@ -1,0 +1,25 @@
+{
+  "name": "mirror-cdnjs",
+  "version": "0.0.0",
+  "authors": [
+    "Leigh Zhu <i@zhuli.me>"
+  ],
+  "keywords": [
+    "mirror",
+    "cdnjs"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/upyun-fe/mirror-cdnjs",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.9.7",
+    "angular-route": "~1.4.0",
+    "normalize-css": "~3.0.3"
+  }
+}
