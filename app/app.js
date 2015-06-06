@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('cdnjs', ['ngMaterial', 'ngRoute'])
+angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
 
-.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', '$locationProvider', function($mdThemingProvider, $mdIconProvider, $routeProvider, $locationProvider) {
+.config(['$mdThemingProvider', '$mdIconProvider', '$routeProvider', '$locationProvider', 'uiZeroclipConfigProvider', function($mdThemingProvider, $mdIconProvider, $routeProvider, $locationProvider, uiZeroclipConfigProvider) {
 
   $routeProvider
    .when('/', {
@@ -17,13 +17,27 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute'])
 
   $mdIconProvider
     .icon("menu"       , "resources/menu.svg"        , 24);
+
+  uiZeroclipConfigProvider.setZcConf({
+      swfPath: '../bower_components/zeroclipboard/dist/ZeroClipboard.swf'
+    });
 }])
 
 .controller('mainCtrl', ['$scope', 'Libs', function($scope, Libs) {
 
+  $scope.tagTpl1 = '<script type="text/javascript" src="';
+  $scope.tagTpl2 = '"></script>';
+
+  $scope.getTagStr = function(url) {
+    if (/\.js$/.test(url)) {
+      return '<script type="text/javascript" src="' + url + '"></script>';
+    } else if (/\.css$/.test(url)) {
+      return '<link rel="stylesheet" href=" ' + url + '" />';
+    }
+
+  };
+
   Libs.query().then(function(res) {
-    console.log(res);
     $scope.libs = res.results;
-    console.log($scope.libs);
   });
 }]);

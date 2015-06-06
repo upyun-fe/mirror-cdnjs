@@ -5,11 +5,19 @@
 
 <md-content layout-padding>
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat="lib in libs | filter: {'name': keyword}">
+    <md-list-item class="md-2-line" ng-repeat-start="lib in libs | filter: {'name': keyword}">
       <div class="md-list-item-text" layout="row" layout-align="space-between center">
         <a>{{lib.name}}</a>
-        <p>{{lib.latest}}</p>
+        <div layout="row" layout-align="space-between center">
+          <p style="margin-right: 2em;">{{lib.latest}}</p>
+          <md-select placeholder="Copy" ng-model="copyType" style="padding: 0 2px;">
+            <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="lib.latest">Copy URL</md-option>
+            <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="getTagStr(lib.latest)">Copy Tag</md-option>
+          </md-select>
+        </div>
+
       </div>
     </md-list-item>
+    <md-divider ng-repeat-end></md-divider>
   </md-list>
 </md-content>

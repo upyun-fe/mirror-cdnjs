@@ -20,6 +20,10 @@
   "dependencies": {
     "angular-material": "~0.9.7",
     "angular-route": "~1.4.0",
-    "normalize-css": "~3.0.3"
+    "normalize-css": "~3.0.3",
+    "angular-zeroclipboard": "~0.4.2"
+  },
+  "resolutions": {
+    "angular": "1.4.0"
   }
 }
