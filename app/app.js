@@ -32,7 +32,7 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
     if (/\.js$/.test(url)) {
       return '<script type="text/javascript" src="' + url + '"></script>';
     } else if (/\.css$/.test(url)) {
-      return '<link rel="stylesheet" href=" ' + url + '" />';
+      return '<link rel="stylesheet" href="' + url + '" />';
     }
 
   };
