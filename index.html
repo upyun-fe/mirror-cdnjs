@@ -21,9 +21,14 @@
   <script src="app/services/libs.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1 class="app-title">Mirror of cdnjs by UPYUN</h1>
-    <div ng-view></div>
-  </div>
+  <md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">
+      <h3>
+        <span>Mirror of cdnjs by UPYUN</span>
+      </h3>
+    </div>
+  </md-toolbar>
+
+  <div class="container" ng-view></div>
 </body>
 </html>

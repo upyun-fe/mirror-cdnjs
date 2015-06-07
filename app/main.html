@@ -3,7 +3,7 @@
   <input type="text" ng-model="keyword">
 </md-input-container>
 
-<md-content layout-padding>
+<md-content layout-padding layout-fill>
   <md-list>
     <md-list-item class="md-2-line" ng-repeat-start="lib in libs | filter: {'name': keyword}">
       <div class="md-list-item-text" layout="row" layout-align="space-between center">

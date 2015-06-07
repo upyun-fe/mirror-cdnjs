@@ -2,12 +2,6 @@
   height: 20px;
 }
 
-.app-title {
-  text-align: center;
-  color: #02a3c6;
-}
-
 .container {
-  width: 80%;
-  margin: auto;
+  margin: 0 10%;
 }
