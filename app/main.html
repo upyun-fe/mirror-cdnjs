@@ -9,7 +9,7 @@
       <div class="md-list-item-text" layout="row" layout-align="space-between center">
         <a>{{lib.name}}</a>
         <div layout="row" layout-align="space-between center">
-          <a style="margin-right: 2em;" href="https:{{lib.latest}}" class="url">{{lib.latest}}</a>
+          <a style="margin-right: 2em;" href="https:{{lib.latest}}" class="url" target="_blank">{{lib.latest}}</a>
           <md-select placeholder="Copy" ng-model="copyType" style="padding: 0 2px;">
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="lib.latest">Copy URL</md-option>
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="getTagStr(lib.latest)">Copy Tag</md-option>
