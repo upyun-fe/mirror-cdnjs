@@ -5,3 +5,15 @@
 .container {
   margin: 0 10%;
 }
+
+.list a.url {
+  margin-right: 2em;
+  color: #999;
+  text-decoration: none;
+  position: relative;
+  top: 3px;
+}
+
+.list a.url:hover {
+  text-decoration: underline;
+}

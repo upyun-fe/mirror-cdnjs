@@ -25,8 +25,9 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
 
 .controller('mainCtrl', ['$scope', 'Libs', function($scope, Libs) {
 
-  $scope.tagTpl1 = '<script type="text/javascript" src="';
-  $scope.tagTpl2 = '"></script>';
+  $scope.sorting = function(lib) {
+    return !!$scope.keyword ? lib.name.length : lib.name;
+  };
 
   $scope.getTagStr = function(url) {
     if (/\.js$/.test(url)) {

@@ -3,13 +3,13 @@
   <input type="text" ng-model="keyword">
 </md-input-container>
 
-<md-content layout-padding layout-fill>
+<md-content layout-padding layout-fill class="list">
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat-start="lib in libs | filter: {'name': keyword}">
+    <md-list-item class="md-2-line" ng-repeat-start="lib in libs | orderBy: sorting | filter: {'name': keyword}">
       <div class="md-list-item-text" layout="row" layout-align="space-between center">
         <a>{{lib.name}}</a>
         <div layout="row" layout-align="space-between center">
-          <p style="margin-right: 2em;">{{lib.latest}}</p>
+          <a style="margin-right: 2em;" href="https:{{lib.latest}}" class="url">{{lib.latest}}</a>
           <md-select placeholder="Copy" ng-model="copyType" style="padding: 0 2px;">
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="lib.latest">Copy URL</md-option>
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="getTagStr(lib.latest)">Copy Tag</md-option>
