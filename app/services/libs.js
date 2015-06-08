@@ -5,7 +5,7 @@ angular.module('cdnjs')
 .factory('Libs', ['$http', function($http) {
   return {
     query: function(params) {
-      return $http.get('http://api.cdnjs.com/libraries', { params: params })
+      return $http.get('http://api-cdnjs.b0.upaiyun.com/libraries', { params: params })
         .then(function(response) {
           if (response && response.data && response.data.results) {
             response.data.results = response.data.results.map(function(itm) {
