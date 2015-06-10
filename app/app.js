@@ -23,7 +23,7 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
     });
 }])
 
-.controller('mainCtrl', ['$scope', 'Libs', function($scope, Libs) {
+.controller('mainCtrl', ['$scope', '$timeout', 'Libs', function($scope, $timeout, Libs) {
 
   $scope.sorting = function(lib) {
     return !!$scope.keyword ? lib.name.length : lib.name;
@@ -38,7 +38,26 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
 
   };
 
-  Libs.query().then(function(res) {
-    $scope.libs = res.results;
-  });
+  // Libs.query().then(function(res) {
+  //   $scope.libs = res.results;
+  // });
+
+  var _timeoutID;
+  $scope.search = function(keyword) {
+    if (_timeoutID) {
+      $timeout.cancel(_timeoutID);
+    }
+
+    var params = {
+      search: keyword,
+      fields: 'version,description,homepage,keywords'
+    };
+
+    _timeoutID = $timeout(function() {
+      Libs.query(params).then(function(res) {
+        $scope.libs = res.results;
+      });
+    }, 500);
+  };
+
 }]);

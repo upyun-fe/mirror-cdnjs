@@ -6,14 +6,36 @@
   margin: 5% 10%;
 }
 
-.list a.url {
-  margin-right: 2em;
+.main-search {
+  margin-top: 15%;
+}
+
+.list .lib-url {
+  margin: 1em 2em;
+}
+
+.list .lib-url a {
   color: #999;
   text-decoration: none;
   position: relative;
   top: 3px;
+  font-size: 14px;
 }
 
-.list a.url:hover {
+.list .lib-url a:hover {
   text-decoration: underline;
+}
+
+.list .lib-info {
+  width: 50%;
+}
+
+.list .lib-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.list .lib-desc {
+  padding-right: 2em;
+  color: #999;
 }

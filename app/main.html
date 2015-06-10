@@ -1,21 +1,28 @@
-<md-input-container>
+<md-input-container class="main-search">
   <label>Search for a library</label>
-  <input type="text" ng-model="keyword">
+  <input type="text" ng-model="keyword" ng-change="search(keyword)">
 </md-input-container>
 
 <md-content layout-fill class="list">
   <md-list>
-    <md-list-item class="md-2-line" ng-repeat-start="lib in libs | orderBy: sorting | filter: {'name': keyword}">
+    <md-list-item class="md-2-line" ng-repeat-start="lib in libs | orderBy: sorting">
       <div class="md-list-item-text" layout="row" layout-align="space-between center">
-        <a>{{lib.name}}</a>
-        <div layout="row" layout-align="space-between center">
-          <a style="margin-right: 2em;" href="https:{{lib.latest}}" class="url" target="_blank">{{lib.latest}}</a>
+        <div layout="column" class="lib-info">
+          <h5 class="lib-name"><a>{{lib.name}}</a></h5>
+          <p class="lib-desc">{{lib.description}}</p>
+          <md-chips class="lib-keywords" ng-model="lib.keywords" readonly="true">
+            <md-chip></md-chip>
+          </md-chips>
+        </div>
+        <div layout="column" layout-align="space-between center">
+          <div class="lib-url">
+            <a href="https:{{lib.latest}}" target="_blank">{{lib.latest}}</a>
+          </div>
           <md-select placeholder="Copy" ng-model="copyType" style="padding: 0 2px;">
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="lib.latest">Copy URL</md-option>
             <md-option ui-zeroclip zeroclip-copied="copied=true" zeroclip-model="getTagStr(lib.latest)">Copy Tag</md-option>
           </md-select>
         </div>
-
       </div>
     </md-list-item>
     <md-divider ng-repeat-end></md-divider>
