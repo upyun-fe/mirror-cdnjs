@@ -6,15 +6,42 @@
   margin: 5% 10%;
 }
 
+.md-sidenav-left {
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.md-sidenav-left h2 {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.md-sidenav-left .menu {
+  margin-top: -2em;
+  padding: 0 1em 1em;
+  list-style: none;
+}
+
+.md-sidenav-left .menu li {
+  margin: 2em;
+}
+
+.md-sidenav-left .menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold
+}
+
 .main-search {
   margin-top: 15%;
 }
 
-.list .lib-url {
+.main .lib-url {
   margin: 1em 2em;
 }
 
-.list .lib-url a {
+.main .lib-url a {
   color: #999;
   text-decoration: none;
   position: relative;
@@ -22,20 +49,33 @@
   font-size: 14px;
 }
 
-.list .lib-url a:hover {
+.main .lib-url a:hover {
   text-decoration: underline;
 }
 
-.list .lib-info {
+.main .lib-info {
   width: 50%;
 }
 
-.list .lib-name {
+.main .lib-name {
   font-size: 16px;
   font-weight: bold;
 }
 
-.list .lib-desc {
+.main .lib-desc {
   padding-right: 2em;
   color: #999;
+}
+
+
+.list a.url {
+  color: #999;
+  text-decoration: none;
+  position: relative;
+  top: 3px;
+  font-size: 14px;
+}
+
+.list a.url:hover {
+  text-decoration: underline;
 }

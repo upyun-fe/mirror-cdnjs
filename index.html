@@ -21,8 +21,11 @@
   <script src="app/services/libs.js"></script>
 </head>
 <body>
-  <md-toolbar md-scroll-shrink>
+  <md-toolbar md-scroll-shrink ng-controller="navCtrl">
     <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Menu" ng-click="openLeftMenu()">
+        <md-icon md-svg-icon="assets/menu.svg"></md-icon>
+      </md-button>
       <h3>
         <span>Mirror of cdnjs by UPYUN</span>
       </h3>
@@ -30,5 +33,15 @@
   </md-toolbar>
 
   <div class="container" ng-view></div>
+
+  <md-sidenav md-component-id="left" class="md-sidenav-left">
+    <h2><a href="#/"><img src="assets/upyun_logo.png" height="25" width="140" alt=""></a></h2>
+    <md-content layout-padding>
+      <ul class="menu">
+        <li><a href="#/list">Browse Libraries</a></li>
+        <!-- <li><a href="">About</a></li> -->
+      </ul>
+    </md-content>
+  </md-sidenav>
 </body>
 </html>

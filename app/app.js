@@ -9,6 +9,10 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
       templateUrl: 'app/main.html',
       controller: 'mainCtrl'
     })
+   .when('/list', {
+      templateUrl: 'app/list.html',
+      controller: 'listCtrl'
+    })
     .otherwise('/');
 
   $mdThemingProvider.theme('default')
@@ -22,6 +26,12 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
       swfPath: '../bower_components/zeroclipboard/dist/ZeroClipboard.swf'
     });
 }])
+
+.controller('navCtrl', function($scope, $mdSidenav) {
+  $scope.openLeftMenu = function() {
+    $mdSidenav('left').toggle();
+  };
+})
 
 .controller('mainCtrl', ['$scope', '$timeout', 'Libs', function($scope, $timeout, Libs) {
 
@@ -59,5 +69,26 @@ angular.module('cdnjs', ['ngMaterial', 'ngRoute', 'zeroclipboard'])
       });
     }, 500);
   };
+
+}])
+
+.controller('listCtrl', ['$scope', '$timeout', 'Libs', function($scope, $timeout, Libs) {
+
+  $scope.sorting = function(lib) {
+    return !!$scope.keyword ? lib.name.length : lib.name;
+  };
+
+  $scope.getTagStr = function(url) {
+    if (/\.js$/.test(url)) {
+      return '<script type="text/javascript" src="' + url + '"></script>';
+    } else if (/\.css$/.test(url)) {
+      return '<link rel="stylesheet" href="' + url + '" />';
+    }
+
+  };
+
+  Libs.query().then(function(res) {
+    $scope.libs = res.results;
+  });
 
 }]);
